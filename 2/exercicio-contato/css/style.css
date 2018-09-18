@@ -44,6 +44,10 @@ body {
     width: 100%;
 }
 
+.contato__input:focus {
+    background-color: rgb(255, 201, 201);
+}
+
 .contato__label{
     display: block;
     color: #ffffff;

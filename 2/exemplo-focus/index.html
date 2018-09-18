@@ -23,7 +23,7 @@
                     <input type="email" class="cadastro__input" id="cadastroInputEmail" placeholder="email@exemplo.com.br">
                 </div>
                 <div class="cadastro__form-group">
-                    <label for="cadastroInputEmailConfirm" class="cadastro__label">Email</label>
+                    <label for="cadastroInputEmailConfirm" class="cadastro__label">Confirmar Email</label>
                     <input type="email" class="cadastro__input" id="cadastroInputEmailConfirm" placeholder="email@exemplo.com.br">
                 </div>
                 <div class="cadastro__form-group">
@@ -31,7 +31,7 @@
                     <input type="password" class="cadastro__input" id="cadastroInputPassword" placeholder="password123">
                 </div>
                 <div class="cadastro__form-group">
-                    <label for="cadastroInputPasswordConfirm" class="cadastro__label">Senha</label>
+                    <label for="cadastroInputPasswordConfirm" class="cadastro__label">Confirmar Senha</label>
                     <input type="password" class="cadastro__input" id="cadastroInputPasswordConfirm" placeholder="password123">
                 </div>
                 <div class="cadastro__form-group">
@@ -41,14 +41,15 @@
                 <div class="cadastro__form-group">
                     <label for="cadastroInputArea" class="cadastro__label">Area</label>
                     <select name="cadastroInputArea" id="cadastroInputArea">
+                        <option value="" selected>Selecione</option>
                         <option value="Front-End">Front-End</option>
                         <option value="Back-End">Back-End</option>
                         <option value="UX Designer">UX Design</option>
-                        <option value="UX Designer">UI Design</option>
+                        <option value="UI Designer">UI Design</option>
                     </select>
                 </div>
                 <div class="cadastro__form-group">
-                    <span for="cadastroInputLevel" class="cadastro__label">Nível</span>
+                    <span id="cadastroInputLevel" class="cadastro__label">Nível</span>
                     <div class="cadastro__radio-group">
                         <label for="cadastroInputLevelJunior" class="cadastro__label">
                             <input type="radio" name="level" value="Junior" id="cadastroInputLevelJunior" checked="checked"> Junior
