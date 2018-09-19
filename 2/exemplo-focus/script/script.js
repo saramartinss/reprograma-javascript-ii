@@ -9,6 +9,12 @@ const inputPhone = document.getElementById("cadastroInputPhone")
 const inputArea = document.getElementById("cadastroInputArea")
 const inputLevel = document.getElementById("cadastroInputLevel")
 const button = document.querySelector(".cadastro__button")
+const inputJunior = document.getElementById("cadastroInputLevelJunior")
+const inputPleno = document.getElementById("cadastroInputLevelPleno")
+const inputSenior = document.getElementById("cadastroInputLevelSenior")
+const checkbox = document.getElementById("cadastroInputNews")
+
+// O fundo muda de cor de acordo com a área
 
 inputArea.addEventListener("change", function(event){
     event.preventDefault()
@@ -32,17 +38,10 @@ inputArea.addEventListener("change", function(event){
 
 button.addEventListener("click", function(event) {
     event.preventDefault()
-    
-    // let radioItem
-    // for (let i = 0; i < inputLevel.length; i++) {
-    //     if (inputLevel[i].checked) {
-            
-    //     }
-    // }
 
     list = [inputName, inputEmail, inputEmailConfirm, inputPassword, inputPasswordConfirm, inputPhone]
 
-// 2 -  Verificar se os inputs estão vazios, ou undefineds
+// Verificar se os inputs estão vazios, ou undefineds
 
     for(const item in list) {
         if (list[item].value === undefined || list[item].value === null || list[item].value === "" || list[item].value === " ") {
@@ -51,7 +50,7 @@ button.addEventListener("click", function(event) {
         }
     }
 
-// 3 - Verificar se os emails são os mesmos
+// Verificar se os emails são os mesmos
 
     if (inputEmail.value !== inputEmailConfirm.value) {
         alert("Oi, os e-mail devem ser os mesmos!")
@@ -59,7 +58,7 @@ button.addEventListener("click", function(event) {
         return false
     }
 
-// 4 - Verificar se a senha é a mesma
+// Verificar se a senha é a mesma
 
     else if (inputPassword.value !== inputPasswordConfirm.value) {
         alert("Oi, as senhas não conferem!")
@@ -67,18 +66,34 @@ button.addEventListener("click", function(event) {
         return false
     }
 
-// 5 - Senha tem que ter mais que 7 digitos
+// Senha tem que ter mais que 7 digitos
 
     else if (inputPassword.value.length <= 7) {
         alert("Oi, sua senha deve ter mais que 7 dígitos")
         inputPassword.focus()
         return false
+    } 
+
+// dependando do nível escreve no console
+
+    if (inputJunior.checked) {
+        console.log(`0 - 2 anos de experiência`)
+    }
+    else if (inputPleno.checked) {
+        console.log(`2 - 5 anos de experiência`)
+    }
+    else if (inputSenior.checked) {
+        console.log(`5+ anos de experiência`)
     }
 
-// 6 - O fundo muda de cor de acordo com a área
+// Se news não estiver checkado exibir um alerta
 
+    if (!checkbox.checked) {
+        alert(`É uma pena que você não deseja receber nosso conteúdo exclusivo :c`)
+    }
     
-
     alert("ok")
 
 }) 
+
+
