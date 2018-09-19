@@ -7,31 +7,40 @@ const inputPassword = document.getElementById("cadastroInputPassword")
 const inputPasswordConfirm = document.getElementById("cadastroInputPasswordConfirm")
 const inputPhone = document.getElementById("cadastroInputPhone")
 const inputArea = document.getElementById("cadastroInputArea")
-const inputLevel = document.getElementById("cadastroInputLevel")
+const inputLevel = document.getElementsByName("level")
 const button = document.querySelector(".cadastro__button")
 const inputJunior = document.getElementById("cadastroInputLevelJunior")
 const inputPleno = document.getElementById("cadastroInputLevelPleno")
 const inputSenior = document.getElementById("cadastroInputLevelSenior")
 const checkbox = document.getElementById("cadastroInputNews")
 
+// Não permitir que a confirmação de e-mail e senha sejam coladas 
+
+inputEmailConfirm.addEventListener("paste", function(event) {
+    event.preventDefault()
+    return false
+})
+
+inputPasswordConfirm.addEventListener("paste", function(){
+    event.preventDefault()
+    return false
+})
+
 // O fundo muda de cor de acordo com a área
 
 inputArea.addEventListener("change", function(event){
     event.preventDefault()
 
-    if (inputArea.value === "Front-End"){
+    if (inputArea.selectedIndex === 0){
         document.querySelector(".wrapper").style.backgroundColor = '#ADD8E6'
     }
-    
-    else if (inputArea.value === "Back-End"){
+    else if (inputArea.selectedIndex === 1){
         document.querySelector(".wrapper").style.backgroundColor = '#98FB98'
     }
-    
-    else if (inputArea.value === "UX Designer"){
+    else if (inputArea.selectedIndex === 2){
         document.querySelector(".wrapper").style.backgroundColor = '#FFC0CB'
     }
-    
-    else if (inputArea.value === "UI Designer"){
+    else if (inputArea.selectedIndex === 3){
         document.querySelector(".wrapper").style.backgroundColor = '#F0E68C'
     }
 })
@@ -74,15 +83,28 @@ button.addEventListener("click", function(event) {
         return false
     } 
 
+    else if (inputPhone.value.length < 10 || inputPhone.value.length > 11) {
+        alert("Número de telefone inválido")
+        inputPhone.focus()
+        return false
+    }
+
 // dependando do nível escreve no console
 
-    if (inputJunior.checked) {
+    let radioItem
+    for (let i=0; i < inputLevel.length; i++) {
+        if (inputLevel[i].checked) {
+            radioItem = inputLevel[i]
+        }
+    }
+
+    if (radioItem.value === "Junior") {
         console.log(`0 - 2 anos de experiência`)
     }
-    else if (inputPleno.checked) {
+    else if (radioItem.value === "Pleno") {
         console.log(`2 - 5 anos de experiência`)
     }
-    else if (inputSenior.checked) {
+    else if (radioItem.value === "Senior") {
         console.log(`5+ anos de experiência`)
     }
 
@@ -92,8 +114,11 @@ button.addEventListener("click", function(event) {
         alert(`É uma pena que você não deseja receber nosso conteúdo exclusivo :c`)
     }
     
+    document.querySelector("body").style.backgroundColor = "#fff"
+    const form = this.closest("form")
     alert("ok")
-
+    form.submit()
 }) 
+
 
 
