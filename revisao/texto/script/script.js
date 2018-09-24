@@ -6,6 +6,7 @@ let fonte = 16
 botaoAumentar.addEventListener("click", function(e){
   e.preventDefault()
   fonte += 1
+  console.log(fonte)
   texto.style.fontSize = `${fonte}px`
 })
 
